@@ -31,4 +31,23 @@ class LinkedList
     list_string
   end
 
+  def prepend(data)
+    node = Node.new(data)
+    node.next_node = @head
+    @head = node
+  end
+
+  def insert(position, data)
+    if position == 0
+      prepend(data)
+      return
+    end
+    node = Node.new(data)
+    current_node = @head
+    (position - 1).times do
+      current_node = current_node.next_node
+    end
+    node.next_node = current_node.next_node
+    current_node.next_node = node
+  end
 end
