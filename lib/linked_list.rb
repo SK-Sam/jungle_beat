@@ -4,11 +4,19 @@ class LinkedList
   def initialize
     @head = nil
     @count = 0
+    @current_node = nil
+    #@tail = nil
   end
 
   def append(data)
     node = Node.new(data)
-    @head = node if @head == nil
+    if @head == nil
+      @head = node
+      @current_node = @head
+    else
+      @current_node.next_node = node
+      @current_node = node
+    end
     @count += 1
   end
 
