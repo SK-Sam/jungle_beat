@@ -31,4 +31,10 @@ class LinkedList
     list_string
   end
 
+  def prepend(data)
+    node = Node.new(data)
+    node.next_node = @head
+    @head = node
+  end
+
 end
