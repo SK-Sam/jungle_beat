@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require './lib/linked_list'
+require './lib/node'
 
 class LinkedListTest < Minitest::Test
 
@@ -8,7 +9,7 @@ class LinkedListTest < Minitest::Test
 
     assert_nil list.head
     assert_equal 0, list.count
-    assert_nil, list.to_string
+    assert_nil list.to_string
   end
   
   def test_it_can_append_data_as_a_node
@@ -16,7 +17,7 @@ class LinkedListTest < Minitest::Test
     list.append("doop")
     
     assert_equal list.head.data, "doop"
-    assert_instance_of list.head.class, Node
+    assert_equal list.head.class, Node
     assert_nil list.head.next_node
     assert_equal 1, list.count
     assert_equal "doop", list.to_string
